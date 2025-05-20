@@ -1,4 +1,4 @@
-Steps Taken
+##Steps Taken
 Five files were created: app.py, docker-compose.yml, Dockerfile, Makefile,  and requirements.txt, using code provided in week-7 folder in GitHub repository. Once the files were created, the commands ‘make build’ and ‘make start’ were run to build the docker image and start all services defined in docker-compose.yml. 
 
 Once build was successful, http://127.0.0.1:15000/ was entered into the browser address bar, which printed the message ‘Hello World’, indicating the app was accessible from the browser. To facilitate access, an Inbound rule was added to allow traffic to port 15000 form any address.
