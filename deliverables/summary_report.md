@@ -4,7 +4,7 @@ Five files were created: app.py, docker-compose.yml, Dockerfile, Makefile,  and 
 
 Once build was successful, http://IP:15000/ was entered into the browser address bar, which printed the message ‘Hello World’, indicating the app was accessible from the browser. To facilitate access, an Inbound rule was added to allow traffic to port 15000 form any address.
 
-Several other requests were made from the browser to test the /ping and /calculate routes: “http://<IP>:15000/ping?ip=8.8.8.8 and http://<IP>:15000/calculate?expr=2%2B3, response indicates both routes were accessible from the browser. 
+Several other requests were made from the browser to test the /ping and /calculate routes: “http://IP:15000/ping?ip=8.8.8.8 and http://IP:15000/calculate?expr=2%2B3, response indicates both routes were accessible from the browser. 
 
 Ran ‘make check’, ‘make scan’ and make ‘host-security’. Identified vulnerabilities and misconfigurations were recorded and stored in files for future reference. 
 Several vulnerabilities were noted, including Hardcoded password, Unsafe subprocess execution, subprocess open with shell=true, Unsafe use of eval(), and binding to all interfaces. 
@@ -39,8 +39,8 @@ Several steps were taken to harden the docker container, including:
 2.	Checked app runs as a non-root user. The app had Group appgroup and user set to appuser
 3.	Added a HEALTHCHECK directive by adding HEALTHCHECK --interval=30s --timeout=30s --retries=3 CMD curl -f http://localhost:5000/ || exit 1, to Dockerfile.
 
-Once the app was hardened, requests were made from the browser to retest the /ping and /calculate routes: “http://127.0.0.1:15000/ping?ip=8.8.8.8” and “http://<IP>:15000/calculate?expr=2%2B3”, response indicated both routes were no longer accessible from the browser.
-The command curl “http://<IP>:15000/ping?ip=8.8.8.8” was made from the terminal, response indicated the app was accessible from localhost. 
+Once the app was hardened, requests were made from the browser to retest the /ping and /calculate routes: “http://127.0.0.1:15000/ping?ip=8.8.8.8” and “http://IP:15000/calculate?expr=2%2B3”, response indicated both routes were no longer accessible from the browser.
+The command curl “http://IP:15000/ping?ip=8.8.8.8” was made from the terminal, response indicated the app was accessible from localhost. 
 
 ## Rescanning 
  Ran ‘make check’, ‘make scan’ and make ‘host-security’ and noted less vulnerabilities, one vulnerability that was rated ‘medium’ was downgraded to ‘low’.
