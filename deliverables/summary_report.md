@@ -2,7 +2,7 @@
 
 Five files were created: app.py, docker-compose.yml, Dockerfile, Makefile,  and requirements.txt, using code provided in week-7 folder in GitHub repository. Once the files were created, the commands ‘make build’ and ‘make start’ were run to build the docker image and start all services defined in docker-compose.yml. 
 
-Once build was successful, http://<IP>:15000/ was entered into the browser address bar, which printed the message ‘Hello World’, indicating the app was accessible from the browser. To facilitate access, an Inbound rule was added to allow traffic to port 15000 form any address.
+Once build was successful, http://IP:15000/ was entered into the browser address bar, which printed the message ‘Hello World’, indicating the app was accessible from the browser. To facilitate access, an Inbound rule was added to allow traffic to port 15000 form any address.
 
 Several other requests were made from the browser to test the /ping and /calculate routes: “http://<IP>:15000/ping?ip=8.8.8.8 and http://<IP>:15000/calculate?expr=2%2B3, response indicates both routes were accessible from the browser. 
 
